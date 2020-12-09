@@ -1,4 +1,5 @@
 package com.microservice.CarList;
+import com.microservice.CarList.model.Car;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,4 +31,30 @@ class CarListApplicationTests {
 		assertEquals(cars, "{\"id\":0,\"brand\":\"Clio\",\"color\":\"red\"}");
 	}
 
+	@Test
+	public void shouldCreateACar() throws Exception {
+		Car car = new Car(4, "Audi", "purple");
+		restTemplate.postForObject("/models", car, String.class);
+		String cars = restTemplate.getForObject("/models/4", String.class);
+		assertEquals(cars, "{\"id\":4,\"brand\":\"Audi\",\"color\":\"purple\"}");
+	}
+
+	@Test
+	public void shouldUpdateACar() throws Exception {
+		Car car = new Car(4, "Audi", "purple");
+		restTemplate.postForObject("/models", car, String.class);
+		car = new Car(4, "Audi", "yellow");
+		restTemplate.put("/models/4", car, String.class);
+		String cars = restTemplate.getForObject("/models/4", String.class);
+		assertEquals(cars, "{\"id\":4,\"brand\":\"Audi\",\"color\":\"yellow\"}");
+	}
+
+	@Test
+	public void shouldDeleteACar() throws Exception {
+		Car car = new Car(4, "Audi", "purple");
+		restTemplate.postForObject("/models", car, String.class);
+		restTemplate.delete("/models/4", String.class);
+		String cars = restTemplate.getForObject("/models/4", String.class);
+		assertEquals(cars, null);
+	}
 }

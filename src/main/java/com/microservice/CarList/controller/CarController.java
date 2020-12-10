@@ -3,10 +3,11 @@ package com.microservice.CarList.controller;
 import com.microservice.CarList.model.Car;
 import com.microservice.CarList.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @RestController
 public class CarController {
@@ -26,7 +27,7 @@ public class CarController {
 
     @GetMapping("/models/{id}")
     @ResponseBody
-    public Car show(@PathVariable final Integer id){
+    public Optional<Car> show(@PathVariable final Integer id){
        return this.carService.getCarById(id);
     }
 
@@ -46,6 +47,5 @@ public class CarController {
     public void deleteCar(@PathVariable int id){
         this.carService.deleteCar(id);
     }
-
 
 }

@@ -5,36 +5,38 @@ import com.microservice.CarList.model.Car;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class CarServiceImpl implements CarService {
-    private CarDao carDao;
+    private final CarDao carDao;
 
     public CarServiceImpl(CarDao carDao){
         this.carDao = carDao;
     }
     @Override
-    public Car getCarById(Integer id) {
-       return this.carDao.getCarById(id);
+    public Optional<Car> getCarById(Integer id) {
+       return this.carDao.findById(id);
     }
 
     @Override
     public void addCar(Car car) {
-        this.carDao.addCar(car);
+        this.carDao.save(car);
     }
 
     @Override
     public List<Car> getAllCars() {
-        return this.carDao.getAllCars();
+        return  carDao.findAll();
     }
 
     @Override
     public void updateCar(Car car, int id) {
-        this.carDao.updateCar(car, id);
+        this.carDao.save(car);
     }
 
     @Override
     public void deleteCar(Integer id) {
-        this.carDao.deleteCar(id);
+        this.carDao.deleteById(id);
     }
 }

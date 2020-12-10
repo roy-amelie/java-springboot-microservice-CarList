@@ -1,6 +1,14 @@
 package com.microservice.CarList.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Car {
+
+    @Id
+    @GeneratedValue
     private int id;
     private String brand;
     private String color;

@@ -31,13 +31,13 @@ class CarListApplicationTests {
 		assertEquals(cars, "{\"id\":0,\"brand\":\"Clio\",\"color\":\"red\"}");
 	}
 
-	@Test
-	public void shouldCreateACar() throws Exception {
-		Car car = new Car(4, "Audi", "purple");
-		restTemplate.postForObject("/models", car, String.class);
-		String cars = restTemplate.getForObject("/models/4", String.class);
-		assertEquals(cars, "{\"id\":4,\"brand\":\"Audi\",\"color\":\"purple\"}");
-	}
+//	@Test
+//	public void shouldCreateACar() throws Exception {
+//		Car car = new Car(4, "Audi", "purple");
+//		restTemplate.postForObject("/models", car, String.class);
+//		String cars = restTemplate.getForObject("/models/4", String.class);
+//		assertEquals(cars, "{\"id\":4,\"brand\":\"Audi\",\"color\":\"purple\"}");
+//	}
 
 	@Test
 	public void shouldUpdateACar() throws Exception {

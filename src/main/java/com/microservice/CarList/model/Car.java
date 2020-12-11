@@ -1,5 +1,7 @@
 package com.microservice.CarList.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,8 +11,11 @@ public class Car {
 
     @Id
     @GeneratedValue
+    @JsonIgnore
     private int id;
+    @JsonIgnore
     private String brand;
+    @JsonIgnore
     private String color;
 
     public Car(){
@@ -19,26 +24,6 @@ public class Car {
     public Car(String brand, String color){
         this.brand = brand;
         this.color = color;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public int getId() {
-        return id;
     }
 
     @Override

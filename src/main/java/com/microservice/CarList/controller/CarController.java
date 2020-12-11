@@ -19,25 +19,21 @@ public class CarController {
     }
 
     @GetMapping("/models")
-    @ResponseBody
     public List<Car> index(){
         return this.carService.getAllCars();
     }
 
     @GetMapping("/models/{id}")
-    @ResponseBody
     public Optional<Car> show(@PathVariable final Integer id){
        return this.carService.getCarById(id);
     }
 
     @PostMapping(path = "/models", consumes = "application/json")
-    @ResponseBody
     public void add(@RequestBody Car car){
         this.carService.addCar(car);
     }
 
     @PutMapping(path = "/models/{id}", consumes = "application/json")
-    @ResponseBody
     public void update(@RequestBody Car car, @PathVariable int id){
         this.carService.updateCar(car, id);
     }

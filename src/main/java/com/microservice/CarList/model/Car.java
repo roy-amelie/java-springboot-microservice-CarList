@@ -21,12 +21,6 @@ public class Car {
         this.color = color;
     }
 
-    public Car(int id,String brand, String color){
-        this.id = id;
-        this.brand = brand;
-        this.color = color;
-    }
-
     public String getBrand() {
         return brand;
     }

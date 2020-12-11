@@ -27,7 +27,7 @@ class CarListApplicationTests {
 
 	@Test
 	public void shouldCreateACar() throws Exception {
-		Car car = new Car( 1, "Audi", "purple");
+		Car car = new Car(  "Audi", "purple");
 		restTemplate.postForObject("/models", car, String.class);
 		String cars = restTemplate.getForObject("/models", String.class);
 		assertEquals(cars, "[{\"id\":1,\"brand\":\"Audi\",\"color\":\"purple\"}]");

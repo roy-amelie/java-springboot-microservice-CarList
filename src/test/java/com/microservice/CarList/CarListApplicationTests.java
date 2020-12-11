@@ -41,7 +41,7 @@ class CarListApplicationTests {
 
 	@Test
 	public void shouldUpdateACar() throws Exception {
-		Car car = new Car(1, "Audi", "yellow");
+		Car car = new Car( "Audi", "yellow");
 		restTemplate.put("/models/1", car, String.class);
 		String cars = restTemplate.getForObject("/models/1", String.class);
 		assertEquals(cars, "{\"id\":1,\"brand\":\"Audi\",\"color\":\"yellow\"}");

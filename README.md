@@ -8,7 +8,7 @@
 
 ![](./image/swagger.png)
 
-### Annotaion definition
+### Annotation definition
 
 * **@SpringBootApplication** : enables Spring Boot autoconfiguration and component scanning
 * **@Autowired** : marks a constructor, field, or setter method to be autowired by Spring dependency injection.

@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * define the model of Car table in database
+ */
 @Entity
 public class Car {
 
@@ -18,9 +21,17 @@ public class Car {
     @JsonIgnore
     private String color;
 
+    /**
+     * Car constructor without parameter
+     */
     public Car(){
     }
 
+    /**
+     * Car constructor
+     * @param brand String
+     * @param color String
+     */
     public Car(String brand, String color){
         this.brand = brand;
         this.color = color;

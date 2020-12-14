@@ -3,14 +3,14 @@ package com.microservice.CarList.service;
 import com.microservice.CarList.dao.CarDao;
 import com.microservice.CarList.model.Car;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
+
 
 @Service
 public class CarServiceImpl implements CarService {
     private final CarDao carDao;
+
 
     public CarServiceImpl(CarDao carDao){
         this.carDao = carDao;
